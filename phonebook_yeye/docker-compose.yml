@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  phonebook:
+    build: .
+    container_name: phonebook_yeye
+    stdin_open: true
+    tty: true

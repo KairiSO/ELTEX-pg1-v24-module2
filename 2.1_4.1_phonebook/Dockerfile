@@ -18,15 +18,14 @@ RUN useradd -m -s /bin/bash appuser
 WORKDIR /app
 COPY include/ ./include/
 COPY src/ ./src/
+COPY Makefile ./Makefile
 COPY schema.sql ./schema.sql
 COPY data.sql ./data.sql
 COPY docker-entrypoint.sh ./docker-entrypoint.sh
 RUN chmod +x ./docker-entrypoint.sh
 
-# Компилируем программу
-RUN cc -Wall -Wextra -std=c11 -Iinclude \
-    -I/usr/include/postgresql \
-    src/*.c -lpq -o contact_book
+# Собираем через Makefile
+RUN make
 
 # Даём appuser права на запуск бинарника
 RUN chown appuser:appuser /app/contact_book

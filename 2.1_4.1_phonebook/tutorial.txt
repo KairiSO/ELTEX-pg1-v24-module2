@@ -1,5 +1,13 @@
-## Быстрый запуск
+## Сборка и запуск
 
+### Локально (требуется gcc и libpq-dev)
 ```bash
-docker build -t phonebook .
-docker run -it --rm phonebook
+make
+./contact_book
+
+### через docker
+docker build -t phonebook_yeye .
+docker run -it --rm phonebook_yeye
+
+### через docker compose
+docker compose up --build

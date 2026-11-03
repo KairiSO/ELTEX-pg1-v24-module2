@@ -1,0 +1,5 @@
+## Быстрый запуск
+
+```bash
+docker build -t phonebook .
+docker run -it --rm phonebook

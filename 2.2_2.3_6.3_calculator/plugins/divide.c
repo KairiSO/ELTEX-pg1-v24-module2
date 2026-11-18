@@ -1,5 +1,6 @@
 /* Плагин деления. Проверяет деление на ноль внутри плагина. */
-
+#include <stdio.h>
+#include <math.h>
 const char* get_name(void)
 {
     return "Деление";

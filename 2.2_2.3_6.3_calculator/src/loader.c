@@ -6,14 +6,14 @@
 #include <dlfcn.h>  /* dlopen, dlsym, dlclose, dlerror */
 #include <dirent.h> /* opendir, readdir                */
 
-/* Начальная ёмкость массива команд. При переполнении будет удваиваться. */
 #define INITIAL_CAPACITY 8
 
-/* Суффикс, по которому мы отличаем разделяемые библиотеки от других файлов. */
 #define PLUGIN_EXT ".so"
 
-/* Внутренняя функция: добавляет одну команду в список.
-   При необходимости расширяет массив (удвоением). */
+/*
+Внутренняя функция: добавляет одну команду в список.
+При необходимости расширяет массив.
+*/
 static int add_command(CommandList *list, const char *name,
                        operation_func func, void *handle)
 {
